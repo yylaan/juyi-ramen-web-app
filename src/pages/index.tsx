@@ -1,98 +1,176 @@
-import { Geist, Geist_Mono } from 'next/font/google'
-import Head from 'next/head'
-import Image from 'next/image'
+import {
+  Heading,
+  Image,
+  SimpleGrid,
+  Stack,
+  Text,
+  Container,
+  VStack,
+  HStack,
+  List,
+} from '@chakra-ui/react'
 
-import styles from '@/styles/Home.module.css'
+import MaxWidthContainer from '@/components/max-width-container'
+import PaddingContainer from '@/components/padding-container'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
+function ImageGrid() {
+  return (
+    <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 8, md: 16 }}>
+      <Image alt="" src="https://picsum.photos/2000/3000" />
+      <Image alt="" src="https://picsum.photos/2000/3000" mt={24} />
+    </SimpleGrid>
+  )
+}
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+function ExplainerText({ children }: { children: React.ReactNode }) {
+  return (
+    <Text whiteSpace="pretty" textAlign="center" fontWeight="light" fontSize={24}>
+      {children}
+    </Text>
+  )
+}
+
+function RulesText({ children }: { children: React.ReactNode }) {
+  return (
+    <Text whiteSpace="pretty" fontWeight="light" fontSize={24}>
+      {children}
+    </Text>
+  )
+}
+
+function MenuPricingText({ children }: { children: React.ReactNode }) {
+  return (
+    <Text as="span" fontSize={16} fontStyle="italic">
+      {children}
+    </Text>
+  )
+}
+
+function Explainer() {
+  return (
+    <Container maxW={800} justifyItems="center">
+      <Heading as="h2" size="3xl" p={8}>
+        WHAT WE DO
+      </Heading>
+      <Stack>
+        <ExplainerText>we offer exciting food at a fair price.</ExplainerText>
+        <ExplainerText>
+          we strive to minimize food waste by sourcing local surplus ingredients.
+        </ExplainerText>
+        <ExplainerText>everything is fresh. nothing is vegetarian or vegan.</ExplainerText>
+      </Stack>
+      <Image alt="" src="https://picsum.photos/2000/1400" pt={16} />
+    </Container>
+  )
+}
+
+function HouseRules() {
+  return (
+    <Container maxW={800}>
+      <Heading as="h2" size="3xl" p={8} textAlign="center">
+        RULES
+      </Heading>
+      <Stack align="center">
+        <List.Root as="ol" gap={4}>
+          <List.Item>
+            <RulesText>be on time and respect other guests.</RulesText>
+          </List.Item>
+          <List.Item>
+            <RulesText>don&apos;t waste food.</RulesText>
+          </List.Item>
+          <List.Item>
+            <RulesText>finish your food in a reasonable amount of time</RulesText>
+            <RulesText>to let everyone enjoy it.</RulesText>
+          </List.Item>
+          <List.Item>
+            <RulesText>
+              respect the food. it&apos;s here for you, not the other way around.
+            </RulesText>
+          </List.Item>
+          <List.Item>
+            <RulesText>no strong parfumes or pets.</RulesText>
+          </List.Item>
+          <List.Item>
+            <RulesText>no children unless agreed upon in advance.</RulesText>
+          </List.Item>
+          <List.Item>
+            <RulesText>
+              all dishes contain meat and/or seafood. no exceptions will be made.
+            </RulesText>
+          </List.Item>
+        </List.Root>
+      </Stack>
+
+      <Image alt="" src="https://picsum.photos/2000/1400" pt={16} />
+    </Container>
+  )
+}
+
+function Menu() {
+  return (
+    <Container maxW={800} justifyItems="center">
+      <Stack gap={16}>
+        <VStack>
+          <HStack>
+            <Heading as="h3" size="3xl">
+              RAMEN
+            </Heading>
+            <MenuPricingText>14</MenuPricingText>
+          </HStack>
+          <VStack>
+            <ExplainerText>SHIO / SHOYU</ExplainerText>
+            <HStack>
+              <ExplainerText>TORI PAITAN</ExplainerText>
+              <MenuPricingText>+2</MenuPricingText>
+            </HStack>
+            <HStack>
+              <ExplainerText>MONTHLY SPECIAL</ExplainerText>
+              <MenuPricingText>+2</MenuPricingText>
+            </HStack>
+          </VStack>
+          <Text fontWeight="light" pt={2}>
+            larger ramen portions are free upon request, but please finish it all.
+          </Text>
+        </VStack>
+        <VStack>
+          <HStack>
+            <Heading as="h3" size="3xl">
+              DRINKS
+            </Heading>
+            <MenuPricingText>3</MenuPricingText>
+          </HStack>
+          <VStack>
+            <ExplainerText>SODA - COLD</ExplainerText>
+            <HStack>
+              <ExplainerText>TEA - WARM</ExplainerText>
+              <MenuPricingText>-3</MenuPricingText>
+            </HStack>
+            <HStack>
+              <ExplainerText>TEA - COLD</ExplainerText>
+            </HStack>
+          </VStack>
+        </VStack>
+      </Stack>
+    </Container>
+  )
+}
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Generated by create next app" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}>
-        <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <ol>
-            <li>
-              Get started by editing <code>src/pages/index.tsx</code>.
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
-
-          <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className={styles.logo}
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              />
-              Deploy now
-            </a>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
-            >
-              Read our docs
-            </a>
-          </div>
-        </main>
-        <footer className={styles.footer}>
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
-            Learn
-          </a>
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image aria-hidden src="/window.svg" alt="Window icon" width={16} height={16} />
-            Examples
-          </a>
-          <a
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
-            Go to nextjs.org →
-          </a>
-        </footer>
-      </div>
-    </>
+    <MaxWidthContainer>
+      <PaddingContainer>
+        <Stack gap={16}>
+          <Stack py={16} gap={24}>
+            <Heading as="h1" size="6xl">
+              exciting ramen, good price.
+            </Heading>
+            <ImageGrid />
+          </Stack>
+          <Explainer />
+          <HouseRules />
+          <Menu />
+        </Stack>
+      </PaddingContainer>
+    </MaxWidthContainer>
   )
 }

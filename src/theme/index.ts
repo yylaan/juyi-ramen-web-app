@@ -8,7 +8,7 @@ const customConfig = defineConfig({
       padding: 0,
     },
     'html, body': {
-      bg: 'white',
+      bg: '#FDFAF2',
       maxWidth: '100vw',
       overflowX: 'hidden',
     },
@@ -23,13 +23,13 @@ const customConfig = defineConfig({
   theme: {
     tokens: {
       fonts: {
-        heading: { value: 'var(--font-poppins)' },
-        body: { value: 'var(--font-poppins)' },
+        heading: { value: 'Roboto Condensed' },
+        body: { value: 'Roboto Condensed' },
       },
       colors: {
         brand: {
           primary: {
-            value: '#103288',
+            value: '#FDFAF2',
           },
           secondary: {
             value: '#F4F7FB',
