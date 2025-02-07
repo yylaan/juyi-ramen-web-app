@@ -1,14 +1,14 @@
 import { DefaultSeoProps } from 'next-seo'
 
 const config: DefaultSeoProps = {
-  title: 'Cachup',
-  titleTemplate: "%s | Let's compose good communication.",
-  defaultTitle: 'Cachup',
+  title: 'JUYI RAMEN',
+  titleTemplate: '%s | Exciting ramen, great price.',
+  defaultTitle: 'JUYI RAMEN',
   openGraph: {
     type: 'website',
     locale: 'en_EN',
-    url: 'https://cachup.app',
-    siteName: 'Cachup',
+    url: 'https://www.juyiramen.com',
+    siteName: 'JUYI RAMEN',
   },
 }
 
