@@ -15,9 +15,8 @@ import PaddingContainer from '@/components/padding-container'
 
 function ImageGrid() {
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 4, md: 8, lg: 16 }}>
+    <SimpleGrid columns={{ base: 1 }} gap={{ base: 4, md: 8, lg: 16 }}>
       <Image alt="" src="https://picsum.photos/2000/2500" />
-      <Image alt="" src="https://picsum.photos/2000/2500" mt={24} />
     </SimpleGrid>
   )
 }
@@ -165,7 +164,7 @@ export default function Home() {
         <Stack gap={16}>
           <Stack py={16} gap={24}>
             <Heading as="h1" size="6xl">
-              exciting ramen, good price.
+              about us
             </Heading>
             <ImageGrid />
           </Stack>
